@@ -1,0 +1,21 @@
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    age INT,
+    role VARCHAR(20)
+);
+
+INSERT INTO users (username, email, age, role)
+VALUES
+  ('john_doe', 'john@example.com', 30, 'admin'),
+  ('jane_doe', 'jane@example.com', 25, 'user'),
+  ('sam_smith', 'sam@example.com', 35, 'user'),
+  ('susan_jones', 'susan@example.com', 40, 'admin'),
+  ('mark_johnson', 'mark@example.com', 28, 'user');
+  
+
+az keyvault key list --vault-name cskeyvaulttest01
+az keyvault key delete --vault-name cskeyvaulttest01 --name testkey01
+az keyvault key list-deleted --vault-name cskeyvaulttest01
+az keyvault key recover --vault-name cskeyvaulttest01 --name testkey01
